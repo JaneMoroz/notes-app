@@ -17,6 +17,18 @@
       "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       "category": "todos",
       "id": 3
+    },
+    {
+      "title": "Yoga class",
+      "details": "Hatha yoga at 15:30 at Circus Pazza Mall",
+      "category": "hobby",
+      "id": 4
+    },
+    {
+      "title": "Stream \"Witcher 5\"",
+      "details": "Messenger bag brunch affogato marfa, poke hot chicken literally retro snackwave slow-carb leggings craft beer scenester. Food truck microdosing green juice art party four dollar toast polaroid 3 wolf moon normcore neutra vice cred +1 squid af. Viral four dollar toast lumbersexual biodiesel try-hard semiotics offal shoreditch VHS lomo gluten-free tote bag vaporware. Celiac blog viral, twee offal shoreditch messenger bag raclette tacos you probably haven't heard of them.",
+      "category": "hobby",
+      "id": 5
     }
   ]
 }

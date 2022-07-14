@@ -7,8 +7,10 @@ import {
   IconButton,
   Typography,
   styled,
+  Avatar,
 } from "@mui/material";
 import { DeleteOutline } from "@mui/icons-material";
+import { blue, green, pink, yellow } from "@mui/material/colors";
 
 interface CategoryProps {
   category: string;
@@ -30,6 +32,22 @@ const NoteCard: FC<NoteCardProps> = ({ note, onDeleteNote }): ReactElement => {
     <div>
       <MyCard elevation={1} category={note.category}>
         <CardHeader
+          avatar={
+            <Avatar
+              sx={{
+                backgroundColor:
+                  note.category === "work"
+                    ? yellow[700]
+                    : note.category === "hobby"
+                    ? pink[200]
+                    : note.category === "todos"
+                    ? green[500]
+                    : blue[500],
+              }}
+            >
+              {note.category[0].toUpperCase()}
+            </Avatar>
+          }
           action={
             <IconButton onClick={() => onDeleteNote(note.id)}>
               <DeleteOutline />

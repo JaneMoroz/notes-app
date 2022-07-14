@@ -1,7 +1,8 @@
-import React, { useEffect, ReactElement, FC, useState } from "react";
+import { useEffect, ReactElement, FC, useState } from "react";
 import { Note } from "../models/note";
-import { Container, Grid } from "@mui/material";
+import { Container } from "@mui/material";
 import NoteCard from "../components/NoteCard";
+import Masonry from "react-masonry-css";
 
 const Notes: FC = (): ReactElement => {
   const [notes, setNotes] = useState<Note[]>([]);
@@ -20,17 +21,27 @@ const Notes: FC = (): ReactElement => {
     setNotes(newNotes);
   };
 
+  const breakpoints = {
+    default: 3,
+    1100: 2,
+    700: 1,
+  };
+
   return (
     <Container>
-      <Grid container spacing={3}>
+      <Masonry
+        breakpointCols={breakpoints}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
         {notes.map((note) => {
           return (
-            <Grid item xs={12} md={6} lg={4} key={note.id}>
+            <div key={note.id}>
               <NoteCard note={note} onDeleteNote={handleDelete} />
-            </Grid>
+            </div>
           );
         })}
-      </Grid>
+      </Masonry>
     </Container>
   );
 };

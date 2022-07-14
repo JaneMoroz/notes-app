@@ -1,15 +1,19 @@
 import { AddCircleOutlineOutlined, SubjectOutlined } from "@mui/icons-material";
 import {
+  AppBar,
   Drawer,
   Typography,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
+  Toolbar,
+  Avatar,
 } from "@mui/material";
 import { FC, ReactElement } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { format } from "date-fns";
 
 const drawerWidth = "240px";
 
@@ -18,6 +22,7 @@ const classes = {
     background: "#f9f9f9",
     width: "100%",
     padding: "24px",
+    marginTop: "60px",
   },
   drawer: {
     width: drawerWidth,
@@ -33,6 +38,16 @@ const classes = {
   },
   title: {
     padding: "16px",
+  },
+  appbar: {
+    width: `calc(100% - ${drawerWidth})`,
+  },
+  date: {
+    flexGrow: 1,
+    marginRight: "16px",
+  },
+  avatar: {
+    marginLeft: "16px",
   },
 };
 
@@ -54,11 +69,20 @@ const Layout: FC = (): ReactElement => {
   return (
     <div style={classes.root}>
       {/* app bar */}
+      <AppBar sx={classes.appbar} elevation={0}>
+        <Toolbar>
+          <Typography sx={classes.date}>
+            Welcome! Today is the {format(new Date(), "do MMMM")}
+          </Typography>
+          <Typography>Jane</Typography>
+          <Avatar src="/cat.jpg" sx={classes.avatar} />
+        </Toolbar>
+      </AppBar>
       {/* side drawer */}
       <Drawer sx={classes.drawer} variant="permanent" anchor="left">
         <div>
           <Typography variant="h5" sx={classes.title}>
-            Super Notes
+            Notes keeper
           </Typography>
         </div>
         {/* List if links */}
