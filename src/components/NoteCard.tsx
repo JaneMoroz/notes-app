@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from "react";
+import { FC, ReactElement } from "react";
 import { Note } from "../models/note";
 import {
   Card,
@@ -6,8 +6,19 @@ import {
   CardContent,
   IconButton,
   Typography,
+  styled,
 } from "@mui/material";
 import { DeleteOutline } from "@mui/icons-material";
+
+interface CategoryProps {
+  category: string;
+}
+
+const MyCard = styled(Card, {
+  shouldForwardProp: (prop) => prop !== "category",
+})(({ category }: CategoryProps) => ({
+  border: category === "work" ? "1px solid red" : "",
+}));
 
 interface NoteCardProps {
   note: Note;
@@ -17,7 +28,7 @@ interface NoteCardProps {
 const NoteCard: FC<NoteCardProps> = ({ note, onDeleteNote }): ReactElement => {
   return (
     <div>
-      <Card elevation={1}>
+      <MyCard elevation={1} category={note.category}>
         <CardHeader
           action={
             <IconButton onClick={() => onDeleteNote(note.id)}>
@@ -32,7 +43,7 @@ const NoteCard: FC<NoteCardProps> = ({ note, onDeleteNote }): ReactElement => {
             {note.details}
           </Typography>
         </CardContent>
-      </Card>
+      </MyCard>
     </div>
   );
 };

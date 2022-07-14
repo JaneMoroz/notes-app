@@ -17,6 +17,7 @@ const classes = {
   page: {
     background: "#f9f9f9",
     width: "100%",
+    padding: "24px",
   },
   drawer: {
     width: drawerWidth,
@@ -29,6 +30,9 @@ const classes = {
   },
   active: {
     background: "#f4f4f4",
+  },
+  title: {
+    padding: "16px",
   },
 };
 
@@ -53,7 +57,9 @@ const Layout: FC = (): ReactElement => {
       {/* side drawer */}
       <Drawer sx={classes.drawer} variant="permanent" anchor="left">
         <div>
-          <Typography variant="h5">Super Notes</Typography>
+          <Typography variant="h5" sx={classes.title}>
+            Super Notes
+          </Typography>
         </div>
         {/* List if links */}
         <List>
