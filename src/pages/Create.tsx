@@ -27,7 +27,7 @@ const Create: FC = (): ReactElement => {
   const [details, setDetails] = useState("");
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
-  const [category, setCategory] = useState("todo");
+  const [category, setCategory] = useState("todos");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

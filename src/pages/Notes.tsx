@@ -3,6 +3,7 @@ import { Note } from "../models/note";
 import { Container } from "@mui/material";
 import NoteCard from "../components/NoteCard";
 import Masonry from "react-masonry-css";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Notes: FC = (): ReactElement => {
   const [notes, setNotes] = useState<Note[]>([]);
@@ -36,9 +37,17 @@ const Notes: FC = (): ReactElement => {
       >
         {notes.map((note) => {
           return (
-            <div key={note.id}>
-              <NoteCard note={note} onDeleteNote={handleDelete} />
-            </div>
+            <AnimatePresence>
+              <motion.div
+                layout
+                animate={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                exit={{ opacity: 0 }}
+                key={note.id}
+              >
+                <NoteCard note={note} onDeleteNote={handleDelete} />
+              </motion.div>
+            </AnimatePresence>
           );
         })}
       </Masonry>
