@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Create from "./pages/Create";
 import Notes from "./pages/Notes";
+import Layout from "./components/Layout";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { teal, grey } from "@mui/material/colors";
 
@@ -25,8 +26,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Notes />} />
-          <Route path="/create" element={<Create />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Notes />} />
+            <Route path="/create" element={<Create />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

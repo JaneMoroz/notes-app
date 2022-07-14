@@ -103,7 +103,6 @@ const Create: FC = (): ReactElement => {
         </FormControl>
 
         <Button
-          onClick={() => console.log("you clicked me")}
           type="submit"
           color="primary"
           variant="contained"
